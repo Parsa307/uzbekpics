@@ -23,13 +23,4 @@ TAG=$1
 
 # TODO
 # Vibe-coded logic (needs check)
-#IMAGE_URLS=$(curl -s "${API_URL}${TAG}${HARDCODED_RATING}" | jq -r '.[].jpeg_url')
-
-#if [ -z "$IMAGE_URLS" ]; then
-  #echo "No images found."
-  #exit 0
-#fi
-
-#echo "$IMAGE_URLS" | while read -r url; do
-    #aria2c "$url"
-#done
+#curl -s "${API_URL}${TAG}" | jq -r '.[].jpeg_url' | aria2c -i-
