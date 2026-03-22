@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# scraper.sh: Scrapes images at yande.re
+# uzbekpics.sh: Scrapes images at yande.re
 
 #read -p "Enter the tag: " TAG
 
