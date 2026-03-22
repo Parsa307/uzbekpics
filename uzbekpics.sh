@@ -21,6 +21,9 @@ TAG=$1
   #exit 1
 #fi
 
+# Create directory for the images
+mkdir -p "$TAG"
+
 # TODO
 # Vibe-coded logic (needs check)
-#curl -s "${API_URL}${TAG}" | jq -r '.[].jpeg_url' | aria2c -i-
+#curl -s "${API_URL}${TAG}" | jq -r '.[].jpeg_url' | aria2c -i- -d "$TAG"
