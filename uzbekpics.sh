@@ -24,6 +24,5 @@ TAG=$1
 # Create directory for the images
 mkdir -p "$TAG"
 
-# TODO
-# Vibe-coded logic (needs check)
-#curl -s "${API_URL}${TAG}${HARDCODED_RATING}" | jq -r '.[].jpeg_url' | aria2c -i- -d "$TAG"
+# Download the image
+curl -s "${API_URL}${TAG}${HARDCODED_RATING}" | jq -r '.[].jpeg_url' | aria2c -i- -d "$TAG"
