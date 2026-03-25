@@ -26,4 +26,4 @@ mkdir -p "$TAG"
 
 # TODO
 # Vibe-coded logic (needs check)
-#curl -s "${API_URL}${TAG}" | jq -r '.[].jpeg_url' | aria2c -i- -d "$TAG"
+#curl -s "${API_URL}${TAG}${HARDCODED_RATING}" | jq -r '.[].jpeg_url' | aria2c -i- -d "$TAG"
