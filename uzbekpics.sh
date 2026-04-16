@@ -1,11 +1,13 @@
 #!/bin/bash
 
-# uzbekpics.sh: Scrapes images at yande.re
+# uzbekpics.sh: Scrapes images at yande.re,konachan.com
 
 #read -p "Enter the tag: " TAG
 
 HARDCODED_RATING=+-rating%3Asafe
-API_URL="https://yande.re/post.json?tags="
+YANDERE_URL="https://yande.re"
+KONACHAN_URL="https://konachan.com"
+API_QUERY="/post.json?tags="
 
 if [ -z "$1" ]; then
  # No tag specified.
@@ -22,7 +24,8 @@ TAG=$1
 #fi
 
 # Create directory for the images
-mkdir -p "$TAG"
+mkdir -p "yandere_$TAG"
+mkdir -p "konachan_$TAG"
 
 # Download the image
-curl -s "${API_URL}${TAG}${HARDCODED_RATING}" | jq -r '.[].jpeg_url' | aria2c -i- -d "$TAG"
+curl -s "${YANDERE_URL}${API_QUERY}${TAG}${HARDCODED_RATING}" | jq -r '.[].jpeg_url' | aria2c -i- -d "yandere_$TAG" && curl -s "${KONACHAN_URL}${API_QUERY}${TAG}" | jq -r '.[].jpeg_url' | aria2c -i- -d "konachan_$TAG"
