@@ -32,4 +32,4 @@ mkdir -p "konachan_$TAG"
 mkdir -p "danbooru_$TAG"
 
 # Download the image
-curl -s "${YANDERE_URL}${API_QUERY}${TAG}${HARDCODED_RATING}${HARDCODED_EXCLUDED_TAG}" | jq -r '.[].jpeg_url' | aria2c -i- -d "yandere_$TAG" && curl -s "${KONACHAN_URL}${API_QUERY}${TAG}${HARDCODED_RATING}" | jq -r '.[].jpeg_url' | aria2c -i- -d "konachan_$TAG" && curl -s "${DANBOORU_API}${TAG}${HARDCODED_RATING_DANBOORU}" | jq -r '.[].url' | aria2c -i- -d "danbooru_$TAG"
+curl -s "${YANDERE_URL}${API_QUERY}${TAG}${HARDCODED_RATING}${HARDCODED_EXCLUDED_TAG}" | jq -r '.[].jpeg_url' | aria2c -i- -d "yandere_$TAG" && curl -s "${KONACHAN_URL}${API_QUERY}${TAG}${HARDCODED_RATING}" | jq -r '.[].jpeg_url' | aria2c -i- -d "konachan_$TAG" && curl -s "${DANBOORU_API}${TAG}${HARDCODED_RATING_DANBOORU}" | jq -r '.[].file_url' | aria2c -i- -d "danbooru_$TAG"
